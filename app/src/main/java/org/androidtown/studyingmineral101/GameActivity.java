@@ -1,12 +1,21 @@
 package org.androidtown.studyingmineral101;
 
 import android.annotation.SuppressLint;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -83,10 +92,22 @@ public class GameActivity extends AppCompatActivity {
         }
     };
 
+    // My Instance
+    private int quizNum, totalLife, chanceAtOnce;
+    private String[] category = {"Hardness", "Specific Gravity", "Cleavage", "Crustal Abundance", "Economic Value"};
+
+    private ArrayList<Card> deck;
+    private ArrayList<Card> tmpDeck;
+    private Card answer;
+
+    TextView strQuizNum, strLife;
+    TextView hardness, specificGravity, cleavage, crustalAbundance, economicValue;
+    ImageView[] images;
+    // private Bitmap[] bitmaps = new Bitmap[4];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_game);
 
         mVisible = true;
@@ -106,6 +127,69 @@ public class GameActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        // My Code
+        quizNum = 1;
+        totalLife = 20;
+        chanceAtOnce = 2;
+
+        strQuizNum = (TextView) findViewById(R.id.quizNum);
+        strLife = (TextView) findViewById(R.id.nLife);
+
+        images = new ImageView[4];
+
+
+        deck = new ArrayList<>();
+        tmpDeck = new ArrayList<>();
+
+        AssetManager am = getAssets() ;
+        InputStream is = null ;
+
+        try {
+            is = am.open("cards.txt") ;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is)) ;
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+
+                String[] cardInformation = line.split(",");
+                Card card;
+
+                card = new Card(cardInformation[0], cardInformation[1], cardInformation[2], cardInformation[3],
+                            cardInformation[4], cardInformation[5]);
+
+                deck.add(card);
+            }
+            is.close() ;
+        } catch (Exception e) {
+            e.printStackTrace() ;
+        }
+
+        Collections.shuffle(deck);
+
+        for (int i = 0; i < 4; i++)
+            tmpDeck.add(deck.get(i));
+        Collections.shuffle(tmpDeck);
+
+        for (int i = 0; i < 4; i++) {
+            Card card;
+            card = tmpDeck.get(i);
+
+            int drawableId = getResources().getIdentifier(card.getCardName(), "drawable", getPackageName());
+            images[i] = (ImageView) findViewById(R.id.image+(i+1));
+            images[i].setImageResource(drawableId);
+        }
+        hardness = (TextView) findViewById(R.id.hardness);
+        specificGravity = (TextView) findViewById(R.id.specificGravity);
+        cleavage = (TextView) findViewById(R.id.cleavage);
+        crustalAbundance = (TextView) findViewById(R.id.crustalAbundance);
+        economicValue = (TextView) findViewById(R.id.economicValue);
+        answer = tmpDeck.get(0);
+        hardness.setText("* " + category[0] + " : " + answer.getCardInfo(0));
+        specificGravity.setText("* " + category[1] + " : " + answer.getCardInfo(1));
+        cleavage.setText("* " + category[2] + " : " + answer.getCardInfo(2));
+        crustalAbundance.setText("* " + category[3] + " : " + answer.getCardInfo(3));
+        economicValue.setText("* " + category[4] + " : " + answer.getCardInfo(4));
+
     }
 
     @Override

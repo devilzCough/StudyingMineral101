@@ -32,11 +32,13 @@
             android:padding="5dp"
             android:columnCount="2">
             <TextView
+                android:id="@+id/quizNum"
                 android:layout_gravity="fill"
                 android:layout_marginLeft="10dp"
                 android:text="Quiz : 1 / 15"
                 android:layout_columnWeight="1"/>
             <TextView
+                android:id="@+id/nLife"
                 android:text="Life : 20 / 20"
                 android:layout_columnWeight="1"
                 android:paddingRight="10dp"/>
@@ -55,26 +57,31 @@
                 android:text="|| Mineral Information!!"
                 android:paddingLeft="10dp"/>
             <TextView
+                android:id="@+id/hardness"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="* Hardness : "
                 android:paddingLeft="10dp"/>
             <TextView
+                android:id="@+id/specificGravity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="* Specific Gravity : "
                 android:paddingLeft="10dp"/>
             <TextView
+                android:id="@+id/cleavage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="* Cleavage : "
                 android:paddingLeft="10dp"/>
             <TextView
+                android:id="@+id/crustalAbundance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="* Crustal Abundance : "
                 android:paddingLeft="10dp"/>
             <TextView
+                android:id="@+id/economicValue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="* Economic Value : "
@@ -82,10 +89,11 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/image1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/actinolite"/>
+            />
 
         <RelativeLayout
             android:id="@+id/rl"
@@ -95,24 +103,26 @@
             android:layout_marginBottom="50dp">
 
             <ImageView
+                android:id="@+id/image2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/actinolite"/>
+                />
 
             <ImageView
+                android:id="@+id/image3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/actinolite"
                 android:layout_alignParentEnd="true"
                 tools:ignore="NotSibling"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                />
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/image4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/actinolite"/>
+            android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
     <!-- This FrameLayout insets its children based on system windows using
