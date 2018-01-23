@@ -37,6 +37,7 @@ public class StartActivity extends AppCompatActivity {
         } else {
             alertView.setText("");
             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+            intent.putExtra("name", name);
             startActivity(intent);
         }
     }
