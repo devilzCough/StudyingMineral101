@@ -1,6 +1,7 @@
 package org.androidtown.studyingmineral101;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -101,6 +102,9 @@ public class GameActivity extends AppCompatActivity {
     };
 
     // My Instance
+    String name;
+    int nCorrect;
+
     private int quizNum, totalLife, chanceAtOnce;
     private String[] category = {"Hardness", "Specific Gravity", "Cleavage", "Crustal Abundance", "Economic Value"};
 
@@ -146,6 +150,8 @@ public class GameActivity extends AppCompatActivity {
         accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         accL = new SensorListener();
 
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +167,8 @@ public class GameActivity extends AppCompatActivity {
         //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
 
         // My Code
+        nCorrect = 0;
+
         quizNum = 1;
         totalLife = 20;
         chanceAtOnce = 2;
@@ -256,11 +264,35 @@ public class GameActivity extends AppCompatActivity {
 
     public void setDashBoard() {
 
+        if (quizNum == 15) {
+            // 맞춘 갯수 + 이름 넘기고 액티비티 실행
+            showScoreActivity();
+        }
+
         quizNum++;
         strQuizNum.setText("Quiz : " + quizNum + "/ 15");
 
         for (int i = 0; i < 4; i++)
             tmpDeck.remove(0);
+    }
+
+    public void showScoreActivity() {
+
+        Intent intent = new Intent(getApplicationContext(), ShowScoreActivity.class);
+        intent.putExtra("name", name);
+        intent.putExtra("score", nCorrect);
+        startActivity(intent);
+
+        finish();
+    }
+
+    public void showFailActivity() {
+
+        if (totalLife == -1) {
+            Intent intent = new Intent(getApplicationContext(), FailActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
@@ -301,6 +333,11 @@ public class GameActivity extends AppCompatActivity {
                 // Log.d("image1", "x : " + x + ", y : " + y);
                 if (answerNum == 1) {
                     Log.d("Result", "1 right!");
+                    nCorrect++;
+                    /*if (quizNum == 15) {
+                        // 맞춘 갯수 + 이름 넘기고 액티비티 실행
+                        showScoreActivity();
+                    }*/
 
                     setDashBoard();
                     setQuiz();
@@ -309,6 +346,8 @@ public class GameActivity extends AppCompatActivity {
                     Log.d("Result", "1 wrong!");
                     chanceAtOnce--;
                     totalLife--;
+                    // check total Life
+                    showFailActivity();
                     strLife.setText("Life : " + totalLife + " / 20");
 
                     if (chanceAtOnce == 0) {
@@ -322,9 +361,11 @@ public class GameActivity extends AppCompatActivity {
                 // Log.d("image2", "x : " + x + ", y : " + y);
                 if (answerNum == 2) {
                     Log.d("Result", "2 right!");
-                    if (quizNum == 15) {
+                    nCorrect++;
+                    /*if (quizNum == 15) {
                         // 맞춘 갯수 + 이름 넘기고 액티비티 실행
-                    }
+                        showScoreActivity();
+                    }*/
 
                     setDashBoard();
                     setQuiz();
@@ -333,6 +374,8 @@ public class GameActivity extends AppCompatActivity {
                     Log.d("Result", "2 wrong!");
                     chanceAtOnce--;
                     totalLife--;
+                    // check total Life
+                    showFailActivity();
                     strLife.setText("Life : " + totalLife + " / 20");
 
                     if (chanceAtOnce == 0) {
@@ -346,6 +389,11 @@ public class GameActivity extends AppCompatActivity {
                 // Log.d("image3", "x : " + x + ", y : " + y);
                 if (answerNum == 3) {
                     Log.d("Result", "3 right!");
+                    nCorrect++;
+                    /*if (quizNum == 15) {
+                        // 맞춘 갯수 + 이름 넘기고 액티비티 실행
+                        showScoreActivity();
+                    }*/
 
                     setDashBoard();
                     setQuiz();
@@ -354,6 +402,9 @@ public class GameActivity extends AppCompatActivity {
                     Log.d("Result", "3 wrong!");
                     chanceAtOnce--;
                     totalLife--;
+                    // check total Life
+                    showFailActivity();
+
                     strLife.setText("Life : " + totalLife + " / 20");
 
                     if (chanceAtOnce == 0) {
@@ -367,6 +418,11 @@ public class GameActivity extends AppCompatActivity {
                 // Log.d("image4", "x : " + x + ", y : " + y);
                 if (answerNum == 4) {
                     Log.d("Result", "4 right!");
+                    nCorrect++;
+                    /*if (quizNum == 15) {
+                        // 맞춘 갯수 + 이름 넘기고 액티비티 실행
+                        showScoreActivity();
+                    }*/
 
                     setDashBoard();
                     setQuiz();
@@ -375,6 +431,8 @@ public class GameActivity extends AppCompatActivity {
                     Log.d("Result", "4 wrong!");
                     chanceAtOnce--;
                     totalLife--;
+                    // check total Life
+                    showFailActivity();
                     strLife.setText("Life : " + totalLife + " / 20");
 
                     if (chanceAtOnce == 0) {

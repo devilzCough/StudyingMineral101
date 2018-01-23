@@ -39,7 +39,8 @@
         </activity>
         <activity android:name=".Authenticate" />
         <activity android:name=".ShowScoreActivity" />
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".IntroActivity" />
+        <activity android:name=".FailActivity" />
     </application>
 
 </manifest>

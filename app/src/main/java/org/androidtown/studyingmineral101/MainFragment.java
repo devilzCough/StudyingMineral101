@@ -22,6 +22,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        AppManager.getInstance().setMainFragment(this);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
 
         btnStart = rootView.findViewById(R.id.startBtn);
