@@ -29,19 +29,13 @@ public class MainFragment extends Fragment {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                ActionBar actionBar = getActivity().getActionBar();
-//                if (actionBar != null) {
-//                    actionBar.hide();
-//                }
-
                 Intent intent = new Intent(getActivity(), StartActivity.class);
                 startActivity(intent);
             }
         });
         introBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), IntroActivity.class);
                 startActivity(intent);
             }

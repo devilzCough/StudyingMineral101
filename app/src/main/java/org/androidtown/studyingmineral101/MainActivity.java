@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_rank:
                 Toast.makeText(this, "rank selected", Toast.LENGTH_SHORT).show(); break;
             case R.id.menu_showScore:
-                Intent intent = new Intent(this,ShowScore.class);
+                Intent intent = new Intent(this,ShowScoreActivity.class);
                 startActivity(intent);
             //case R.id.menu_settings:
                 //Intent intent = new Intent(this, SettingActivity.class);

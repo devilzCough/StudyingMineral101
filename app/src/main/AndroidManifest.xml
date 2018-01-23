@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.androidtown.studyingmineral101">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -19,17 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".StartActivity" />
-
         <activity
             android:name=".GameActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_game"
-            android:theme="@style/FullscreenTheme"></activity>
-
-        <activity android:name=".IntroActivity" />
-
+            android:theme="@style/FullscreenTheme" />
         <activity android:name=".TwitterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -40,13 +35,11 @@
                 <data
                     android:host="t4jsample"
                     android:scheme="oauth" />
-
             </intent-filter>
         </activity>
         <activity android:name=".Authenticate" />
-        <activity android:name=".ShowScore" />
-
+        <activity android:name=".ShowScoreActivity" />
+        <activity android:name=".IntroActivity"></activity>
     </application>
-
 
 </manifest>
