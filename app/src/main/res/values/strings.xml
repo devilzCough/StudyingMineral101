@@ -4,4 +4,28 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="intro_text">G’day Dear Students! Welcome to Studying Mineral 101 :]\n
+        The game designed for high school student who are trying to learn about minerals. \n
+        This mineral game contains 54 different minerals, and each Mineral has their own unique features and characteristics. \n
+        Through solving different mineral quizzes, let’s be familiar with Minerals! \n
+        Someday, maybe you could find diamonds or garnets near by you! \n\n
+
+        You have 20 chances per game, do not miss your chances! \n
+        To choose the right mineral answer, please use your phone up-down-left and right, Move your phone direction all directions to get closer to your mineral answer. \n
+        Oh! Don’t forget to share your score with the others on high-score board and share twitter after you enjoy the game :] \n
+        \n\n
+        Enjoy it! \n
+        Best Regards, \n
+        Team StudyingMineral101</string>
+    <string name="authorize">authorize</string>
+    <string name="login_instructions">This is Mineral 101 Game</string>
+
+    <string name="twitter_callback">http://crunchycodes.net</string>
+    <string name="twitter_consumer_key">e87NKUWVYs7zFSRwmUUkkVIZ9</string>
+    <string name="twitter_consumer_secret">REPXt7seYWEUiR24a7wyTbuQBiTx7dPs8XuqtLl06UL9CvYXi2
+</string>
+    <string name="twitter_oauth_verifier">oauth_verifier</string>
+    <string name="hello">Hello</string>
+    <string name="share">Share</string>
+    <string name="share_instructions">share_instructions</string>
 </resources>

@@ -16,6 +16,7 @@ import android.widget.Button;
 public class MainFragment extends Fragment {
 
     Button btnStart;
+    Button introBtn;
 
     @Nullable
     @Override
@@ -24,6 +25,7 @@ public class MainFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_main, container, false);
 
         btnStart = rootView.findViewById(R.id.startBtn);
+        introBtn = rootView.findViewById(R.id.introBtn);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +39,15 @@ public class MainFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        introBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), IntroActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return rootView;
+
     }
 }

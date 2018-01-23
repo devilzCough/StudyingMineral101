@@ -1,5 +1,6 @@
 package org.androidtown.studyingmineral101;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -39,12 +40,16 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "main selected", Toast.LENGTH_SHORT).show(); break;
             case R.id.menu_rank:
                 Toast.makeText(this, "rank selected", Toast.LENGTH_SHORT).show(); break;
-            case R.id.menu_settings:
+            case R.id.menu_showScore:
+                Intent intent = new Intent(this,ShowScore.class);
+                startActivity(intent);
+            //case R.id.menu_settings:
                 //Intent intent = new Intent(this, SettingActivity.class);
                 //startActivity(intent);
                 // Toast.makeText(this, "settings selected", Toast.LENGTH_SHORT).show(); break;
             default:
                 break;
+
         }
         return super.onOptionsItemSelected(item);
     }
