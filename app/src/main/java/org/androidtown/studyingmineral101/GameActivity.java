@@ -322,6 +322,9 @@ public class GameActivity extends AppCompatActivity {
                 // Log.d("image2", "x : " + x + ", y : " + y);
                 if (answerNum == 2) {
                     Log.d("Result", "2 right!");
+                    if (quizNum == 15) {
+                        // 맞춘 갯수 + 이름 넘기고 액티비티 실행
+                    }
 
                     setDashBoard();
                     setQuiz();
