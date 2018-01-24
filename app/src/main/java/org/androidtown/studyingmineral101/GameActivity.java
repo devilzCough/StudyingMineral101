@@ -117,9 +117,6 @@ public class GameActivity extends AppCompatActivity {
     TextView hardness, specificGravity, cleavage, crustalAbundance, economicValue;
     ImageView[] images;
 
-    // private Drawable digging;
-    // private Bitmap[] bitmaps = new Bitmap[4];
-
     // Sensor..
     private SensorManager sm;
     private Display mDisplay; // 디스플레이 크기의 정보값을 받아옵니다.
@@ -129,8 +126,6 @@ public class GameActivity extends AppCompatActivity {
     private Sensor accSensor; // 가속도
     private Sensor gyroSensor; // 회전
     private DiggingMineral image;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,9 +138,7 @@ public class GameActivity extends AppCompatActivity {
 
         mWin = (WindowManager) getSystemService(WINDOW_SERVICE);
         mDisplay = mWin.getDefaultDisplay();
-        // image = new DiggingMineral(this, null);
         image = (DiggingMineral) findViewById(R.id.picker);
-        // setContentView(image);
         sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         accSensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         accL = new SensorListener();
@@ -177,8 +170,6 @@ public class GameActivity extends AppCompatActivity {
         strLife = (TextView) findViewById(R.id.nLife);
 
         images = new ImageView[4];
-        // digging = getResources().getDrawable(R.drawable.dig);
-
 
         deck = new ArrayList<>();
         tmpDeck = new ArrayList<>();
@@ -205,29 +196,11 @@ public class GameActivity extends AppCompatActivity {
             e.printStackTrace() ;
         }
 
-
-        // Collections.shuffle(tmpDeck);
-
-        /*for (int i = 0; i < 4; i++) {
-            Card card;
-            card = tmpDeck.get(i);
-
-            int drawableId = getResources().getIdentifier(card.getCardName(), "drawable", getPackageName());
-            images[i] = (ImageView) findViewById(R.id.image+(i+1));
-            images[i].setImageResource(drawableId);
-        }*/
         hardness = (TextView) findViewById(R.id.hardness);
         specificGravity = (TextView) findViewById(R.id.specificGravity);
         cleavage = (TextView) findViewById(R.id.cleavage);
         crustalAbundance = (TextView) findViewById(R.id.crustalAbundance);
         economicValue = (TextView) findViewById(R.id.economicValue);
-
-
-
-        /*for (int i = 0; i < 4; i++) {
-            if (answer.getCardName().equals(tmpDeck.get(i).getCardName()))
-                answerNum = i + 1;
-        }*/
 
         setQuiz();
 

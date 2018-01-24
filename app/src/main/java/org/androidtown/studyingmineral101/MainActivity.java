@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer mp;
 
-    // AppManager appManager;
     FragmentManager fragmentManager;
     MainFragment mainFragment;
     RankingFragment rankingFragment;

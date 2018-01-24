@@ -37,34 +37,40 @@
             android:textSize="20sp"
             android:padding="5dp"/>
         <TextView
+            android:id="@+id/name1"
             android:layout_gravity="fill"
             android:text="name1"
             android:textSize="20sp"
             android:padding="5dp"
             android:layout_columnWeight="3"/>
         <TextView
+            android:id="@+id/name2"
             android:layout_gravity="fill"
             android:text="name2"
             android:textSize="20sp"
             android:padding="5dp"/>
         <TextView
+            android:id="@+id/name3"
             android:layout_gravity="fill"
             android:text="name3"
             android:textSize="20sp"
             android:padding="5dp"/>
 
         <TextView
+            android:id="@+id/score1"
             android:layout_gravity="right"
             android:text="score1"
             android:textSize="20sp"
             android:padding="5dp"
             android:layout_columnWeight="1"/>
         <TextView
+            android:id="@+id/score2"
             android:layout_gravity="right"
             android:text="score2"
             android:textSize="20sp"
             android:padding="5dp" />
         <TextView
+            android:id="@+id/score3"
             android:layout_gravity="right"
             android:text="score3"
             android:textSize="20sp"
