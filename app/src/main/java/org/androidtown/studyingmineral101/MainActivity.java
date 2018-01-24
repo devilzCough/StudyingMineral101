@@ -1,5 +1,6 @@
 package org.androidtown.studyingmineral101;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,9 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    MediaPlayer mp;
+
+    // AppManager appManager;
     FragmentManager fragmentManager;
     MainFragment mainFragment;
     RankingFragment rankingFragment;
@@ -21,13 +25,17 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        mp = MediaPlayer.create(this, R.raw.background);
+        AppManager.getInstance().setBackgroundPlayer(mp);
+        mp.setLooping(true);
+        mp.start();
+
         mainFragment = new MainFragment();
         rankingFragment = new RankingFragment();
         settingFragment = new SettingFragment();
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().add(R.id.content, mainFragment).commit();
-
     }
 
     @Override
