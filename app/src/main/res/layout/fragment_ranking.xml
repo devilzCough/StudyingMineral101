@@ -4,4 +4,70 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mineral RANK!"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_gravity="fill"
+            android:text="1. "
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:layout_gravity="fill"
+            android:text="2. "
+            android:textSize="20sp"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_gravity="fill"
+            android:text="3. "
+            android:textSize="20sp"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_gravity="fill"
+            android:text="name1"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:layout_columnWeight="3"/>
+        <TextView
+            android:layout_gravity="fill"
+            android:text="name2"
+            android:textSize="20sp"
+            android:padding="5dp"/>
+        <TextView
+            android:layout_gravity="fill"
+            android:text="name3"
+            android:textSize="20sp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_gravity="right"
+            android:text="score1"
+            android:textSize="20sp"
+            android:padding="5dp"
+            android:layout_columnWeight="1"/>
+        <TextView
+            android:layout_gravity="right"
+            android:text="score2"
+            android:textSize="20sp"
+            android:padding="5dp" />
+        <TextView
+            android:layout_gravity="right"
+            android:text="score3"
+            android:textSize="20sp"
+            android:padding="5dp" />
+    </GridLayout>
 </LinearLayout>

@@ -39,6 +39,7 @@ public class StartActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), GameActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
+            finish();
         }
     }
 
